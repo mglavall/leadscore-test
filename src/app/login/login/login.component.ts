@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { IdentityService } from "../../core/services/identity.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-login",
@@ -10,7 +11,7 @@ export class LoginComponent implements OnInit {
   account: string;
   password: string;
   authError = false;
-  constructor(private identityService: IdentityService) {}
+  constructor(private identityService: IdentityService, private router: Router) {}
 
   ngOnInit() {}
 
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
     if (isValid) {
       this.identityService.login(username, password).subscribe(
         a => {
-          debugger;
+          this.router.navigate(["contacts"]);
         },
         error => {
           if (error.status === 401) {
