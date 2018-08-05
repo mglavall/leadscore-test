@@ -24,4 +24,8 @@ export class IdentityService {
   getAuthToken() {
     return this.session.token.authToken;
   }
+
+  isLoggedIn() {
+    return !!this.session;
+  }
 }
