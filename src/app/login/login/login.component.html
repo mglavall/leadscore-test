@@ -1,14 +1,21 @@
 <div class="container">
   <h1>Hero Form</h1>
-  <form>
+  <form (ngSubmit)="login(account, password, loginForm.valid)" #loginForm="ngForm">
+    <p class="form-control-feedback" *ngIf="authError">Wrong email or password.</p>
     <div class="form-group">
       <label for="account">Account</label>
-      <input type="text" class="form-control" id="name" required>
+      <input type="text" class="form-control" name="account" [(ngModel)]="account" #accountInput="ngModel" required>
+      <div class="form-control-feedback" *ngIf="accountInput.invalid && (accountInput.dirty || accountInput.touched || loginForm.submitted)">
+        You can't create a team without a name
+      </div>
     </div>
 
     <div class="form-group">
       <label for="pass">Password</label>
-      <input type="password" class="form-control" id="alterEgo">
+      <input type="password" class="form-control" name="pass" [(ngModel)]="password" #passwordInput="ngModel" required>
+      <div class="form-control-feedback" *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched || loginForm.submitted)">
+        You can't create a team without a name
+      </div>
     </div>
 
     <button type="submit" class="btn btn-success">Submit</button>

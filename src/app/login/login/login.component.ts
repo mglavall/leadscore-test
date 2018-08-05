@@ -7,9 +7,28 @@ import { IdentityService } from "../../core/services/identity.service";
   styleUrls: ["./login.component.scss"]
 })
 export class LoginComponent implements OnInit {
+  account: string;
+  password: string;
+  authError = false;
   constructor(private identityService: IdentityService) {}
 
-  ngOnInit() {
-    this.identityService.login("mgomezlavall@gmail.com", "Thegrandtour8!");
+  ngOnInit() {}
+
+  login(username: string, password: string, isValid: boolean) {
+    if (isValid) {
+      this.identityService.login(username, password).subscribe(
+        a => {
+          debugger;
+        },
+        error => {
+          if (error.status === 401) {
+            //Authentication failed
+            this.authError = true;
+          }
+        }
+      );
+    }
   }
 }
+
+//"Thegrandtour8!"
