@@ -20,4 +20,8 @@ export class IdentityService {
       })
       .pipe(tap((val: Session) => (this.session = val)));
   }
+
+  getAuthToken() {
+    return this.session.token.authToken;
+  }
 }
