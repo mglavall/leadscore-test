@@ -7,7 +7,7 @@ export class TokenInterceptor implements HttpInterceptor {
   constructor(public identity: IdentityService) {}
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const excluded = "/login";
-    debugger;
+
     // Exclude interceptor for login request:
     if (request.url.search(excluded) === -1) {
       request = request.clone({

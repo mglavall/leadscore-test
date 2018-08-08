@@ -7,8 +7,8 @@ import { IdentityService } from "./identity.service";
 })
 export class AuthGuard implements CanActivate {
   constructor(private identityService: IdentityService, private router: Router) {}
+  // Checks if the user isLoggedIn, if not, redirects to the login page.
   canActivate() {
-    console.log("AuthGuard#canActivate called");
     if (this.identityService.isLoggedIn()) {
       return true;
     }

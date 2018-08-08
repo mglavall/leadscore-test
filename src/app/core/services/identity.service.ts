@@ -12,7 +12,7 @@ export class IdentityService {
   session: Session;
 
   constructor(private httpClient: HttpClient, private router: Router) {}
-
+  // Makes the login and saves the session in the session param.
   login(username: string, password: string) {
     return this.httpClient
       .post<Session>("https://internal-api-staging-lb.interact.io/v2/login", {

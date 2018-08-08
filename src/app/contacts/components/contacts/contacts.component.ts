@@ -18,7 +18,6 @@ export class ContactsComponent implements OnInit {
 
   getContacts() {
     this.contactsService.getContacts().subscribe(response => {
-      debugger;
       this.contactList = response.data;
     });
   }
