@@ -7,7 +7,7 @@
           <label for="account">Account</label>
           <input type="text" class="form-control input-air" name="account" [(ngModel)]="account" #accountInput="ngModel" required>
           <div class="form-control-feedback" *ngIf="accountInput.invalid && (accountInput.dirty || accountInput.touched || loginForm.submitted)">
-            You can't create a team without a name
+            Enter your account name.
           </div>
         </div>
 
@@ -15,7 +15,7 @@
           <label for="pass">Password</label>
           <input type="password" class="form-control input-air" name="pass" [(ngModel)]="password" #passwordInput="ngModel" required>
           <div class="form-control-feedback" *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched || loginForm.submitted)">
-            You can't create a team without a name
+            Enter your password.
           </div>
         </div>
 
